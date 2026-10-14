@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#080706" />
+    <title>HAUS | Control AURA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-effects" aria-hidden="true"><i></i><i></i></div>
+    <main class="app-shell">
+      <section id="loginView" class="access-card" aria-labelledby="loginTitle">
+        <header class="brand-header">
+          <div class="brand-circle">
+            <div>
+              <h1>HAUS</h1>
+              <p>HAUS CLUB</p>
+              <small>SANTA FE</small>
+            </div>
+          </div>
+          <div class="event-divider">
+            <span></span>
+            <p>EVENTO</p>
+            <span></span>
+          </div>
+          <h2>AURA</h2>
+        </header>
+        <section class="login-section">
+          <p class="eyebrow">CONTROL DE ACCESO</p>
+          <h3 id="loginTitle">Personal de puerta</h3>
+          <p class="login-description">
+            Ingresá la PASS de administrador para abrir el control de ingresos.
+          </p>
+          <form id="loginForm" novalidate>
+            <label for="adminPass">PASS DE ADMINISTRADOR</label
+            ><input
+              id="adminPass"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Ingresá la clave"
+              required
+            /><button id="loginButton" class="primary-button" type="submit">
+              INGRESAR AL CONTROL <span>→</span>
+            </button>
+          </form>
+          <div id="loginMessage" class="message" aria-live="polite"></div>
+        </section>
+        <footer>HAUS CLUB · EVENTO AURA</footer>
+      </section>
+      <section id="panelView" class="panel hidden" aria-labelledby="panelTitle">
+        <header class="panel-header">
+          <div>
+            <p class="eyebrow">HAUS — AURA</p>
+            <h1 id="panelTitle">Control de ingresos</h1>
+          </div>
+          <button id="refreshButton" class="refresh-button" type="button">
+            ↻ <span>ACTUALIZAR</span>
+          </button>
+        </header>
+        <div
+          id="summary"
+          class="summary-grid"
+          aria-label="Resumen de invitados"
+        ></div>
+        <label class="search-box" for="searchInput"
+          ><span>⌕</span
+          ><input
+            id="searchInput"
+            type="search"
+            placeholder="Buscar por nombre..."
+            autocomplete="off"
+        /></label>
+        <div id="filters" class="filters" aria-label="Filtros">
+          <button class="filter active" data-filter="todos" type="button">
+            TODOS</button
+          ><button class="filter" data-filter="pendientes" type="button">
+            PENDIENTES</button
+          ><button class="filter" data-filter="ingresaron" type="button">
+            INGRESARON</button
+          ><button class="filter" data-filter="noPagados" type="button">
+            NO PAGADOS
+          </button>
+        </div>
+        <p id="panelMessage" class="message" aria-live="polite"></p>
+        <div id="guestList" class="guest-list" aria-live="polite"></div>
+      </section>
+    </main>
+    <div
+      id="confirmModal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-card">
+        <p class="eyebrow">ATENCIÓN</p>
+        <h2 id="modalTitle">Persona no pagada</h2>
+        <p>
+          Esta persona figura como <strong>NO PAGADA</strong>. ¿Confirmar
+          ingreso de todas maneras?
+        </p>
+        <div class="modal-actions">
+          <button id="cancelEntry" type="button" class="secondary-button">
+            CANCELAR</button
+          ><button id="confirmEntry" type="button" class="danger-button">
+            CONFIRMAR INGRESO
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
